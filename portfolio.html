@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokaraju Surya | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo 600
+                        secondary: '#1E293B', // Slate 800
+                        accent: '#F472B6', // Pink 400
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #4F46E5, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(40px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: move 10s infinite alternate;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, -20px) scale(1.1); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-secondary flex items-center gap-2">
+                <i data-lucide="code-2" class="text-primary"></i> Surya<span class="text-primary">.dev</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-primary transition">Home</a>
+                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#skills" class="hover:text-primary transition">Skills</a>
+                <a href="#projects" class="hover:text-primary transition">Projects</a>
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            </div>
+
+            <a href="#resume" class="hidden md:inline-block bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-indigo-700 transition shadow-lg hover:shadow-indigo-500/30">
+                Download Resume
+            </a>
+
+            <!-- Mobile Toggle -->
+            <button class="md:hidden text-gray-600" onclick="toggleMenu()">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
+            <a href="#home" class="block py-2 text-gray-600 hover:text-primary" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="block py-2 text-gray-600 hover:text-primary" onclick="toggleMenu()">About</a>
+            <a href="#skills" class="block py-2 text-gray-600 hover:text-primary" onclick="toggleMenu()">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-600 hover:text-primary" onclick="toggleMenu()">Projects</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-primary" onclick="toggleMenu()">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6 relative overflow-hidden min-h-screen flex items-center">
+        <!-- Background Blobs -->
+        <div class="blob bg-purple-300 w-72 h-72 rounded-full top-20 left-10"></div>
+        <div class="blob bg-blue-300 w-72 h-72 rounded-full bottom-20 right-10 animation-delay-2000"></div>
+
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="fade-in-up">
+                <span class="bg-indigo-100 text-primary px-3 py-1 rounded-full text-sm font-bold tracking-wide uppercase mb-4 inline-block">Web Developer Intern</span>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-6 text-secondary">
+                    Hello, I'm <br>
+                    <span class="text-gradient">Gokaraju Surya</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
+                    I build accessible, pixel-perfect, and performant web experiences. Currently based in Ongole, India.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#projects" class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-gray-700 transition shadow-xl flex items-center gap-2">
+                        View Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#contact" class="bg-white text-secondary border-2 border-gray-200 px-8 py-3 rounded-full font-bold hover:border-secondary transition">
+                        Contact Me
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex gap-6 text-gray-500">
+                    <a href="https://github.com/" target="_blank" class="hover:text-primary hover:scale-110 transition flex items-center gap-2">
+                        <i data-lucide="github" class="w-6 h-6"></i>
+                    </a>
+                    <a href="https://linkedin.com/" target="_blank" class="hover:text-primary hover:scale-110 transition"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                    <a href="mailto:gokarajusurya416@gmail.com" class="hover:text-primary hover:scale-110 transition"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+            
+            <div class="relative fade-in-up md:h-[500px] flex justify-center items-center">
+                <div class="relative w-80 h-80 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-accent rounded-full opacity-20 blur-2xl"></div>
+                    <img src="https://placehold.co/400x400/1E293B/FFFFFF?text=GS" alt="Profile" class="rounded-full shadow-2xl border-4 border-white object-cover w-full h-full relative z-10 transform hover:scale-105 transition duration-500">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg z-20 flex items-center gap-3 animate-bounce">
+                        <div class="bg-green-100 p-2 rounded-full text-green-600">
+                            <i data-lucide="code" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-bold">Current Status</p>
+                            <p class="font-bold text-secondary">Open to Work</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 fade-in-up">
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    I am a passionate <span class="text-primary font-bold">Frontend Developer</span> based in Ongole, India. I enjoy turning complex problems into simple, beautiful, and intuitive designs. 
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                    My journey started when I edited my first HTML file, and since then, I've been hooked on creating things for the web. Currently, I'm an intern at ShadowFox, refining my skills in modern web technologies.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 pt-8 border-t border-gray-200">
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold text-secondary">10+</h3>
+                        <p class="text-sm text-gray-500">Projects Completed</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold text-secondary">01</h3>
+                        <p class="text-sm text-gray-500">Year Experience</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold text-secondary">5+</h3>
+                        <p class="text-sm text-gray-500">Happy Clients</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-3xl font-bold text-secondary">24/7</h3>
+                        <p class="text-sm text-gray-500">Commitment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">My Tech Stack</h2>
+                <p class="text-gray-500">Technologies I work with</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
+                <!-- Skill Card -->
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">HTML5</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">CSS3</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">JavaScript</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">React</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">Tailwind</h4>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition text-center group fade-in-up">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-12 h-12 mx-auto mb-3 group-hover:scale-110 transition">
+                    <h4 class="font-bold text-gray-700">Git</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Featured Projects</h2>
+                <p class="text-gray-500">Some of my recent work</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 fade-in-up group">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/F76500/FFFFFF?text=IPL+Fan+Portal" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
+                            <a href="https://github.com/" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="#" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">SRH Fan Portal</h3>
+                        <p class="text-gray-600 text-sm mb-4">A comprehensive fan website for Sunrisers Hyderabad with live stats, fan zone, and merchandise store.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-bold rounded-full">HTML</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">Tailwind</span>
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-600 text-xs font-bold rounded-full">JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 fade-in-up group">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=E-Commerce" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
+                            <a href="https://github.com/" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="#" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">ShopEasy</h3>
+                        <p class="text-gray-600 text-sm mb-4">A modern e-commerce interface with product filtering, cart functionality, and checkout flow.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-bold rounded-full">React</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-600 text-xs font-bold rounded-full">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition duration-300 fade-in-up group">
+                    <div class="h-48 bg-gray-200 overflow-hidden relative">
+                        <img src="https://placehold.co/600x400/EC4899/FFFFFF?text=Task+Manager" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                         <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
+                            <a href="https://github.com/" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                            <a href="#" class="bg-white p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="external-link" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">TaskMaster</h3>
+                        <p class="text-gray-600 text-sm mb-4">A productivity app to manage daily tasks with drag-and-drop features and local storage.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-bold rounded-full">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full">CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Want to know more?</h2>
+            <p class="text-indigo-100 mb-8 max-w-xl mx-auto">
+                Check out my resume to see my full education history, work experience, and certifications.
+            </p>
+            <a href="#" class="bg-white text-primary px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition shadow-lg inline-flex items-center gap-2">
+                <i data-lucide="file-text"></i> Download Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Get In Touch</h2>
+                <p class="text-gray-500">Have a project in mind?</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row fade-in-up">
+                <div class="md:w-1/2 bg-secondary p-10 text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        <p class="text-gray-400 mb-8">Fill up the form and I will get back to you within 24 hours.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="phone" class="text-primary"></i>
+                                <span>+91 95158 19759</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="mail" class="text-primary"></i>
+                                <span>gokarajusurya416@gmail.com</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <i data-lucide="map-pin" class="text-primary"></i>
+                                <span>Ongole, India</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://github.com/" target="_blank" class="bg-gray-700 p-2 rounded-full hover:bg-primary transition"><i data-lucide="github" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-primary transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-700 p-2 rounded-full hover:bg-primary transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 p-10">
+                    <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="John Doe">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="john@example.com">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button class="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-indigo-700 transition">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-8 border-t border-gray-700">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Gokaraju Surya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
